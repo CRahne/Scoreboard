@@ -33,75 +33,79 @@ Window_Column_Weight = 100
 Window_Number_Of_Rows = 3
 Window_Row_Weight = 100
 
-# Answer Left
+# Team label 1
 # Location of the label in the grid
-Answer_Left_Row = 1
-Answer_Left_Column = 1
+Team1_Name = "Red "
+Team1_Name_Row = 2
+Team1_Name_Column = 1
 # Adds spacing
-Answer_Left_padx = 0
-Answer_Left_pady = 100
+Team1_Name_padx = 100
+Team1_Name_pady = 100
 # Label colors
-Answer_Left_Background = 'black'
-Answer_Left_Font_Color = 'gold'
+Team1_Name_Background = 'black'
+Team1_Name_Font_Color = 'gold'
 # Font settings
-Answer_Left_Font = 'Consolas' # Any font can be used as long as it is installed
-Answer_Left_Font_Size = 45
+Team1_Name_Font = 'Consolas' # Any font can be used as long as it is installed
+Team1_Name_Font_Size = 45
 
-# Answer Right
+# Team Label 2
 # Location of the label in the grid
-Answer_Right_Row = 1
-Answer_Right_Column = 3
+Team2_Name = "Blue"
+Team2_Name_Row = 2
+Team2_Name_Column = 3
 # Adds spacing
-Answer_Right_padx = 0
-Answer_Right_pady = 100
-Answer_Right_Background = 'black'
-Answer_Right_Font_Color = 'gold'
+Team2_Name_padx = 100
+Team2_Name_pady = 100
+Team2_Name_Background = 'black'
+Team2_Name_Font_Color = 'gold'
 # Font settings
-Answer_Right_Font = 'Consolas' # Any font can be used as long as it is installed
-Answer_Right_Font_Size = 45
+Team2_Name_Font = 'Consolas' # Any font can be used as long as it is installed
+Team2_Name_Font_Size = 45
 
-# Count Left
+# Team 1 count
 # Location of the label in the grid
-Count_Left_Row = 2
-Count_Left_Column = 1
+Team1_Count_Row = 3
+Team1_Count_Column = 1
 # Adds spacing
-Count_Left_padx = 0
-Count_Left_pady = 100
-Count_Left_Background = 'black'
-Count_Left_Font_Color = 'gold'
+Team1_Count_padx = 0
+Team1_Count_pady = 100
+Team1_Count_Background = 'black'
+Team1_Count_Font_Color = 'gold'
 # Font settings
-Count_Left_Font = 'Hack' # Any font can be used as long as it is installed
-Count_Left_Font_Size = 120
+Team1_Count_Font = 'Hack' # Any font can be used as long as it is installed
+Team1_Count_Font_Size = 120
 
-# Count Right
+# Team 2 count
 # Location of the label in the grid
-Count_Right_Row = 2
-Count_Right_Column = 3
+Team2_Count_Row = 3
+Team2_Count_Column = 3
 # Adds spacing
-Count_Right_padx = 0
-Count_Right_pady = 100
-Count_Right_Background = 'black'
-Count_Right_Font_Color = 'gold'
+Team2_Count_padx = 0
+Team2_Count_pady = 100
+Team2_Count_Background = 'black'
+Team2_Count_Font_Color = 'gold'
 # Font settings
-Count_Right_Font = 'Hack' # Any font can be used as long as it is installed
-Count_Right_Font_Size = 120
+Team2_Count_Font = 'Hack' # Any font can be used as long as it is installed
+Team2_Count_Font_Size = 120
 
-# Question (This label uses sticky to stay centered instead of padding)
+# Question (This label uses sticky to stay centered left/right instead of padding)
 # Location of the label in the grid
-Question_Row = 3
-Question_Column = 1
-Question_Columnspan = 3 # Allows the label to span 3 columns
-Question_Background = 'black'
-Question_Font_Color = 'gold'
+Title_Text = "Hello this is a title"
+Title_Row = 1
+Title_Column = 1
+Title_Columnspan = 3 # Allows the label to span 3 columns
+Title_Background = 'black'
+Title_Font_Color = 'gold'
+Title_pady = 50
 # Font settings
-Question_Font = 'Consolas' # Any font can be used as long as it is installed
-Question_Font_Size = 60
+Title_Font = 'Consolas' # Any font can be used as long as it is installed
+Title_Font_Size = 60
 
 # Image
 # File Name For the Image. Must be .png
-Photo_Image_File = "logo350.png"
+Photo_Image_File = "logo.png"
 # Location of the image in the grid
-Image_Row = 1
+Image_Row = 2
 Image_Rowspan = 2 # Allows the image to span 2 rows
 Image_Column = 2
 # Adds spacing
@@ -112,9 +116,12 @@ Image_Background = 'black'
 # Finish Settings
 # Limits for generating a random number for the Finish_Value
 # random.randint(Finish_Value_Lower_Limit, Finish_Value_Upper_Limit)
-Finish_Value_Upper_Limit = 25
-Finish_Value_Lower_Limit = 5
+Finish_Value = 10
 # Time inbetween screen changes, in seconds
 Finish_Flash_Time = 0.5
-Finish_Flash_Font_Color = 'black'
-Finish_Flash_Background_Color = 'gold'
+# The colors that flash when Team1 wins
+Finish_Team1_Flash_Font_Color = 'black'
+Finish_Team1_Flash_Background_Color = 'gold'
+# The colors that flash when Team2 wins
+Finish_Team2_Flash_Font_Color = 'black'
+Finish_Team2_Flash_Background_Color = 'gold'
