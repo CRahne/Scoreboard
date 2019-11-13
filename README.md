@@ -53,48 +53,11 @@ To edit these, you simply need to change the value assigned to the variable.
 
 ### Colors
 
-There are many variables in [Constants.py](Constants.py) that relate to this.
-
-
+There are many variables in [Constants.py](Constants.py) that relate to this. All of the variables are strings that come standard with the Tkinter module. They can be found [here](https://www.tutorialspoint.com/python/tk_colors.htm).
 
 ---
 
 ## Files
-
-### Directory Overview
-```
-.
-+-- BackUpImages
-|   +-- Logo.png
-|   +-- logo300.png
-|   +-- logo325.png
-|   +-- logo400.png
-|
-+-- Docs
-|   +-- Diagram.jpg
-|   +-- FIXME.md
-|
-+-- OldVersions
-|   +-- ButtonStation_v1.py
-|   +-- ButtonStation_v2.py
-|   +-- ButtonStation_v3.py
-|   +-- ButtonStation_v4.py
-|   +-- ButtonStation_v5.py
-|
-+-- TestScripts
-|   +-- ButtonTester.py
-|   +-- ButtonTester_With_Events.py
-|   +-- Test_GUI.py
-|
-+-- ButtonFactory.py
-+-- Constants.py
-+-- ButtonStation_v6.py
-+-- logo350.png
-+-- Question_Handler.py
-+-- Questions.csv
-+-- Questions_converted.csv
-+-- README.md
-```
 
 ### [ButtonFactory.py](ButtonFactory.py)
 This file is used to set up the buttons and adds event catchers for each button.
@@ -106,49 +69,10 @@ customizing the program much easier.
 ### [ButtonStation_v6.py](ButtonStation_v6.py)
 This is where the majority of the logic takes place. All GUI setup, updates, and general control is done here.
 
-### [Question_Handler.py](Question_Handler.py)
-This program formats the questions into a form that can be displayed in the GUI. It returns a random question
-and it's two responses.
-
-### [Questions.csv](Questions.csv)
-This is where all of the pre-converted questions are stored. This file is never directly interfaced with by the
-program, and exists only for the programmer to interact with when adding or removing questions.
-
-### [Questions_converted.csv](Questions_converted.csv)
-This file stores all of the converted questions. This is the file that is referenced by the program when getting
-a random question.
-
-### [logo350.png](logo350.png)
+### [logo.png](logo.png)
 This is the default image to be displayed by the program.
 
 ### [Question_Converter.py](Question_Converter.py)
 This program converts the questions in Questions.csv and stores the new questions in Questions_converted.csv. It
 is only used by the programmer when adding or removing questions.
-
----
-
-## Others
-
-### Adding or Removing Questions
-
-#### Adding a Question
-In order to add a question, you must go to Questions.csv and add the question and it's two respsonses. Each entry
-must be comma seperated. Each line should look like this:
-`Question,Response,Response,`
-If you want to create a new file containing questions, it must be in .csv format and located in the same folder as Question_Handler.py.
-After you have added the questions you want to add, you must run Question_Converter.py. When prompted, input the
-name of the file containing the new questions, and enter "y" when prompted to write the converted questions to 
-Questions.converted.csv.
-
-#### Removing a Question
-Open Questions.csv and delete the line containing the question you wish to remove. Open Questions_converted.csv and
-delete the question you wish to remove. You must delete the question from Questions.csv **_and_** Questions_converted.csv
-in order to permanently remove a question.
-
-# Adding and Removing Buttons
-In order to add or remove buttons, open ButtonStation_v6.py. In order to remove a button, remove the ButtonFactory class call
-of the button you wish to remove. You may also remove the variables containing the settings for that button if you wish(They will
-be located in Constants.py). If you wish to add a button, Then add a ButtonFactory call in ButtonStation_v6.py. This class takes three parameters: The pin number of the button, the method to be called when the button is pressed, and the bouncetime of the button in milliseconds. For example, if you wanted to add a button on pin 5 that called the buttonPress function when pressed and had a bouncetime of 1 second, your code should look like this:
-
-`ButtonFactory(5, buttonPress, 1000)`
 
