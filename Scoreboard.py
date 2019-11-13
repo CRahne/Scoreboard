@@ -9,11 +9,11 @@ import RPi.GPIO as GPIO                  # Allows us to interact with Raspberry 
  # Custom
 from ButtonFactory import ButtonFactory  # A class that will set up the buttons
 import Constants                         # Constant Values that will be called in the program
+import String_Converter                  # Will change the lengths of strings so that they match
 
 
-# Gets the random stop value for the first iteration of the program
-Finish_Value = random.randint(Constants.Finish_Value_Lower_Limit,
-                              Constants.Finish_Value_Upper_Limit)
+# Gets the finish value from Constants
+Finish_Value = Constants.Finish_Value
  
 
 # Creates Root Window Object for the GUI
@@ -41,19 +41,22 @@ mainframe.columnconfigure(Constants.Window_Number_Of_Columns,
 mainframe.rowconfigure(Constants.Window_Number_Of_Rows,
                        weight=Constants.Window_Row_Weight)
 
+Team_Names = [Constants.Team1_Name, Constants.Team2_Name]
+Team_Names = String_Converter.ChangeLengths(Team_Names)
+
 
 ###########
 ## Row 1 ##
 ###########
 
-# Sets up the label and gets the string to be displayed
-Team1_Name = StringVar()
-Team1_Name.set(Constants.Team1_Name)
+# Sets up the Team1 label and gets the string to be displayed
+Team1_Name_Var = StringVar()
+Team1_Name_Var.set(Team_Names[0])
 
 
 # Applies the settings and displays the label
 Team1_Name_Label = Label(mainframe,
-                      textvariable=Team1_Name,
+                      textvariable=Team1_Name_Var,
                       bg=Constants.Team1_Name_Background,
                       fg=Constants.Team1_Name_Font_Color,
                       font=f'{Constants.Team1_Name_Font} {Constants.Team1_Name_Font_Size} bold')
@@ -79,14 +82,14 @@ photo_label.grid(row=Constants.Image_Row,
                  pady=Constants.Image_pady)
 
 
-# Sets up the label and gets the string to be displayed
-Team2_Name = StringVar()
-Team2_Name.set(Constants.Team2_Name)
+# Sets up the Team2 label and gets the string to be displayed
+Team2_Name_Var = StringVar()
+Team2_Name_Var.set(Team_Names[1])
 
 
 # Applies the settings and displays the label
 Team2_Name_Label = Label(mainframe,
-                      textvariable=Team2_Name,
+                      textvariable=Team2_Name_Var,
                       bg=Constants.Team2_Name_Background,
                       fg=Constants.Team2_Name_Font_Color,
                       font=f'{Constants.Team2_Name_Font} {Constants.Team2_Name_Font_Size} bold')
@@ -101,7 +104,7 @@ Team2_Name_Label.grid(row=Constants.Team2_Name_Row,
 ## Row 2 ##
 ###########
 
-# Sets up 1st Count Variable and Label
+# Sets up the Team1 Count Variable and Label
 Team1_Count = StringVar()
 Team1_Count.set('00')
 
@@ -153,33 +156,33 @@ Title_Label.grid(row=Constants.Title_Row,
 
 
 
-# Runs whenever a button is pressed
+# Runs whenever a button is pressed (Other than Scoreboard_Reset)
 def buttonPress(channel):
     
-    # Accesses the randomly assigned Finish_Value
+    # Accesses the Finish_Value
     global Finish_Value
     
     # If the Team1 count is at the Finish Value
     if (int(Team1_Count.get()) == Finish_Value):
         Team1_Win(channel)
     # If the Team2 count is at the Finish Value
-    elif(int(Team2_Count.get() == Finish_Value)):
+    elif(int(Team2_Count.get()) == Finish_Value):
         Team2_Win(channel)
     
     # Adds One to Team1 Count
-    elif channel == Constants.L_Add:
+    elif channel == Constants.Team1_Add:
         Team1_Count.set(convert_number(int(Team1_Count.get()) + 1))
     
     # Adds one to Team2 Count
-    elif channel == Constants.R_Add: 
+    elif channel == Constants.Team2_Add: 
         Team2_Count.set(convert_number(int(Team2_Count.get()) + 1))
     
     # Subtracts one from Team1 Count
-    elif (channel == Constants.L_Sub) and (int(Team1_Count.get()) > 0):
+    elif (channel == Constants.Team1_Sub) and (int(Team1_Count.get()) > 0):
         Team1_Count.set(convert_number(int(Team1_Count.get()) - 1))
     
     # Subtracts one from Team2 Count
-    elif(channel == Constants.R_Sub) and (int(Team2_Count.get()) > 0):
+    elif(channel == Constants.Team2_Sub) and (int(Team2_Count.get()) > 0):
         Team2_Count.set(convert_number(int(Team2_Count.get()) - 1))
 
 
@@ -191,11 +194,6 @@ def Reset_Scores(channel):
     # Resets the values of both counts
     Team1_Count.set('00')
     Team2_Count.set('00')
-    
-    # Gets another random number between 5 and 25 to
-    # determine when the program will restart the next
-    # iteration
-    Finish_Value = Constants.Finish_Value
     
 
 # Runs when Team1_Count is equal to Finsh_Value
@@ -219,7 +217,7 @@ def Team2_Win(channel):
 # Changes the color of the text and background
 def Flash(color_fg, color_bg):
     # Question
-    Question_Label.config(fg=color_fg, bg=color_bg)
+    Title_Label.config(fg=color_fg, bg=color_bg)
     
     # Counts
     Team1_Count_Label.config(fg=color_fg, bg=color_bg)
@@ -248,8 +246,8 @@ def Flash(color_fg, color_bg):
 def Revert_Colors():
     
     # Question Label
-    Question_Label.config(fg=Constants.Question_Font_Color,
-                          bg=Constants.Question_Background)
+    Title_Label.config(fg=Constants.Title_Font_Color,
+                          bg=Constants.Title_Background)
     
     # Count Labels
     Team1_Count_Label.config(fg=Constants.Team1_Count_Font_Color,
@@ -296,20 +294,20 @@ GPIO.setmode(GPIO.BCM)
 # ButtonFactory.py. This will use values from
 # Constants.py
 
-ButtonFactory(Constants.L_Add, buttonPress,           # Team1 Adding Button
-              Constants.L_Add_Bouncetime)
+ButtonFactory(Constants.Team1_Add, buttonPress,           # Team1 Adding Button
+              Constants.Team1_Add_Bouncetime)
  
-ButtonFactory(Constants.R_Add, buttonPress,           # Team2 Adding Button
-              Constants.R_Add_Bouncetime)
+ButtonFactory(Constants.Team2_Add, buttonPress,           # Team2 Adding Button
+              Constants.Team2_Add_Bouncetime)
 
-ButtonFactory(Constants.L_Sub, buttonPress,           # Team1 Subtraction Button
-              Constants.L_Sub_Bouncetime)
+ButtonFactory(Constants.Team1_Sub, buttonPress,           # Team1 Subtraction Button
+              Constants.Team1_Sub_Bouncetime)
 
-ButtonFactory(Constants.R_Sub, buttonPress,           # Team2 Subtraction Button
-              Constants.R_Sub_Bouncetime)
+ButtonFactory(Constants.Team2_Sub, buttonPress,           # Team2 Subtraction Button
+              Constants.Team2_Sub_Bouncetime)
 
-ButtonFactory(Constants.Auto_Finish, finish,          # Auto-Finish Button
-              Constants.Auto_Finish_Bouncetime)
+ButtonFactory(Constants.Scoreboard_Reset, Reset_Scores,          # Scoreboard Reset Button
+              Constants.Scoreboard_Reset_Bouncetime)
 
 
 
