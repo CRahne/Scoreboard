@@ -64,7 +64,7 @@ This file is used to set up the buttons and adds event catchers for each button.
 
 ### [Constants.py](Constants.py)
 This file stores most of the variables used by the program. This keeps most of the values in one spot, making 
-customizing the program much easier.
+customizing the program much easier. The variables that are stored in here are described in [Constants.md](Docs/Constants.md).
 
 ### [ButtonStation_v6.py](ButtonStation_v6.py)
 This is where the majority of the logic takes place. All GUI setup, updates, and general control is done here.
