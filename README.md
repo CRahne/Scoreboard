@@ -51,7 +51,7 @@ To edit these, you simply need to change the value assigned to the variable.
 
 There are many variables in [Constants.py](Constants.py) that relate to this. All of the variables are strings that come standard with the Tkinter module. They can be found [here](https://www.tutorialspoint.com/python/tk_colors.htm).
 
-### Others
+### Other Settings
 
 See [Constants.py](Constants.py). A list of the variables with their descriptions can be found in [Constants.md](Docs/Constants.md).
 
