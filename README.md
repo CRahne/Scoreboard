@@ -9,12 +9,12 @@ A GUI that works as a scoreboard. It uses the RPi.GPIO module to interface with 
 ### Software
 
 1) `git clone https://github.com/CRahne/Scoreboard.git` into a desired directory on the PI.
-2) You can tweak parts of the program in Constants.py or Questions.csv (more on that later)
+2) You can tweak parts of the program in [Constants.py](Constants.py)
 3) [Install Python 3](https://www.python.org/downloads/). This will install the tkinter module, the used GUI framework.
 4) Run [Scoreboard.py](Scoreboard.py), which is in the root directory
 
 ### Wiring
-![alt text](Docs/Diagram.jpg)
+![Something Should Be Here](Docs/WiringDiagram.jpg)
 
 This is a diagram for the Raspberry PI model 4 with a 40 pin layout. You will also need to have a power supply, hdmi output, and connections to a USB mouse and keyboard.
 
