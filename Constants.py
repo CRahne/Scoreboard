@@ -3,18 +3,18 @@
 # everything in one places.
 
 # Channel Numbers on PI for Buttons
-L_Add = 23      # Adds One to the Left Count
-R_Add = 25      # Adds One to the Right Count
-L_Sub = 24      # Subtracts One from the Left Count
-R_Sub = 18      # Subtracts One from the Right Count
-Auto_Finish = 4 # Resets the Poll
+Team1_Add = 23      # Adds One to the Team1 Count
+Team2_Add = 25      # Adds One to the Team2 Count
+Team1_Sub = 24      # Subtracts One from the Team1 Count
+Team2_Sub = 18      # Subtracts One from the Team2 Count
+Scoreboard_Reset = 4 # Resets the Scoreboard
 
 # Sets the bouncetime for the buttons (The time before the program will register another press from that button, in milliseconds)
-L_Add_Bouncetime = 1000
-R_Add_Bouncetime = 1000
-L_Sub_Bouncetime = 1000
-R_Sub_Bouncetime = 1000
-Auto_Finish_Bouncetime = 3000                                                                                                                                                                                       
+Team1_Add_Bouncetime = 1000
+Team2_Add_Bouncetime = 1000
+Team1_Sub_Bouncetime = 1000
+Team2_Sub_Bouncetime = 1000
+Scoreboard_Reset_Bouncetime = 3000                                                                                                                                                                                       
 
 # Tkinter Geometry Configurations
  # Spawnpoints are where the GUI pops up when initialized. They
@@ -35,7 +35,7 @@ Window_Row_Weight = 100
 
 # Team label 1
 # Location of the label in the grid
-Team1_Name = "Red "
+Team1_Name = "Red"
 Team1_Name_Row = 2
 Team1_Name_Column = 1
 # Adds spacing
@@ -90,7 +90,7 @@ Team2_Count_Font_Size = 120
 
 # Question (This label uses sticky to stay centered left/right instead of padding)
 # Location of the label in the grid
-Title_Text = "Hello this is a title"
+Title_Text = "Title"
 Title_Row = 1
 Title_Column = 1
 Title_Columnspan = 3 # Allows the label to span 3 columns
@@ -120,8 +120,8 @@ Finish_Value = 10
 # Time inbetween screen changes, in seconds
 Finish_Flash_Time = 0.5
 # The colors that flash when Team1 wins
-Finish_Team1_Flash_Font_Color = 'black'
-Finish_Team1_Flash_Background_Color = 'gold'
+Finish_Team1_Flash_Font_Color = 'Red'
+Finish_Team1_Flash_Background_Color = 'red'
 # The colors that flash when Team2 wins
-Finish_Team2_Flash_Font_Color = 'black'
-Finish_Team2_Flash_Background_Color = 'gold'
+Finish_Team2_Flash_Font_Color = 'blue'
+Finish_Team2_Flash_Background_Color = 'blue'
