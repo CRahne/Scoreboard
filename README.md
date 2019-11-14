@@ -1,6 +1,6 @@
-# ButtonStation
+# Scoreboard
 
-A GUI that will act as a scoreboard for a this or that questionnaire. It will be controlled by 5 buttons that are hooked up to a raspberry pi. The program will also pick a random end point and then resets itself with a new question.
+A GUI that works as a scoreboard. It uses the RPi.GPIO module to interface with the buttons that are hooked up to the Raspberry Pi. Then, the program will display the scores of each team on a GUI using the Tkinter module.
 
 ---
 
@@ -8,14 +8,15 @@ A GUI that will act as a scoreboard for a this or that questionnaire. It will be
 
 ### Software
 
-1) `git clone https://github.com/CRahne/ButtonStation.git` into a desired directory on the PI.
+1) `git clone https://github.com/CRahne/Scoreboard.git` into a desired directory on the PI.
 2) You can tweak parts of the program in Constants.py or Questions.csv (more on that later)
 3) [Install Python 3](https://www.python.org/downloads/). This will install the tkinter module, the used GUI framework.
-3) Run [ButtonStation_v6.py](ButtonStation_v6.py), which is in the root directory
+4) Run [Scoreboard.py](Scoreboard.py), which is in the root directory
 
 ### Wiring
 ![alt text](Docs/Diagram.jpg)
-This is a diagram for the Raspberry PI model 4 with a 40 pin layout. You will also need to give it a power supply, a hdmi output, and connections to a USB mouse and keyboard.
+
+This is a diagram for the Raspberry PI model 4 with a 40 pin layout. You will also need to have a power supply, hdmi output, and connections to a USB mouse and keyboard.
 
 ---
 
@@ -27,12 +28,6 @@ The settings for the size of the window are near the top of Constants.py. Changi
 window, but font size, the size of the image, and padding **will not** adjust to fit the new settings, and will have to be
 adjusted manually using the padx, pady, and font size variables in Constants.py. To go full screen, get your monitor pixel dimensions/resolution.
 
-### Questions
-
-1) Change or Add questions in the Questions.csv file. An example would be, ```Favorite Animal?, Cat, Dog,```. Note the final comma at the end of the line, as that is important in the next step. Also, if you wanted different sets of questions, you can have multiple csv files.
-2) Run [Question_Converter.py](Question_Converter.py). It will prompt for the filename that stores your questions in [Questions_converted.csv](Questions_converted.csv).
-3) Change the GUI Constraints in [Constants.py](Constants.py).
-
 ### Center Photo
 
 You will need to place the desired photo (which must be .png) into the root directory. Then, you must change the ```Photo_Image_File``` variable in [Constants.py](Constants.py). You may need to adjust other variables, such as padding, to account for the size of the photo.
@@ -42,11 +37,12 @@ You will need to place the desired photo (which must be .png) into the root dire
 The default pins of the buttons are stored in [Constants.py](Constants.py). They are as follows:
 
 ```python
-L_Add = 23      # Adds One to the Left Count
-R_Add = 25      # Adds One to the Right Count
-L_Sub = 24      # Subtracts One from the Left Count
-R_Sub = 18      # Subtracts One from the Right Count
-Auto_Finish = 4 # Resets the Poll
+# Channel Numbers on PI for Buttons
+Team1_Add = 23      # Adds One to the Team1 Count
+Team2_Add = 25      # Adds One to the Team2 Count
+Team1_Sub = 24      # Subtracts One from the Team1 Count
+Team2_Sub = 18      # Subtracts One from the Team2 Count
+Scoreboard_Reset = 4 # Resets the Scoreboard
 ```
 
 To edit these, you simply need to change the value assigned to the variable.
@@ -66,13 +62,12 @@ This file is used to set up the buttons and adds event catchers for each button.
 This file stores most of the variables used by the program. This keeps most of the values in one spot, making 
 customizing the program much easier. The variables that are stored in here are described in [Constants.md](Docs/Constants.md).
 
-### [ButtonStation_v6.py](ButtonStation_v6.py)
+### [Scoreboard.py](Scoreboard.py)
 This is where the majority of the logic takes place. All GUI setup, updates, and general control is done here.
 
 ### [logo.png](logo.png)
 This is the default image to be displayed by the program.
 
-### [Question_Converter.py](Question_Converter.py)
-This program converts the questions in Questions.csv and stores the new questions in Questions_converted.csv. It
-is only used by the programmer when adding or removing questions.
+### [String_Converter.py](String_Converter.py)
+It takes the team strings and converts them to be equal length. The program will determine which one is bigger and then will add spaces to the smaller one.
 
