@@ -43,7 +43,7 @@ Team1_Name_padx = 100
 Team1_Name_pady = 100
 # Label colors
 Team1_Name_Background = 'black'
-Team1_Name_Font_Color = 'gold'
+Team1_Name_Font_Color = 'red'
 # Font settings
 Team1_Name_Font = 'Consolas' # Any font can be used as long as it is installed
 Team1_Name_Font_Size = 45
@@ -57,7 +57,7 @@ Team2_Name_Column = 3
 Team2_Name_padx = 100
 Team2_Name_pady = 100
 Team2_Name_Background = 'black'
-Team2_Name_Font_Color = 'gold'
+Team2_Name_Font_Color = 'blue'
 # Font settings
 Team2_Name_Font = 'Consolas' # Any font can be used as long as it is installed
 Team2_Name_Font_Size = 45
@@ -70,7 +70,7 @@ Team1_Count_Column = 1
 Team1_Count_padx = 0
 Team1_Count_pady = 100
 Team1_Count_Background = 'black'
-Team1_Count_Font_Color = 'gold'
+Team1_Count_Font_Color = 'red'
 # Font settings
 Team1_Count_Font = 'Hack' # Any font can be used as long as it is installed
 Team1_Count_Font_Size = 120
@@ -83,7 +83,7 @@ Team2_Count_Column = 3
 Team2_Count_padx = 0
 Team2_Count_pady = 100
 Team2_Count_Background = 'black'
-Team2_Count_Font_Color = 'gold'
+Team2_Count_Font_Color = 'blue'
 # Font settings
 Team2_Count_Font = 'Hack' # Any font can be used as long as it is installed
 Team2_Count_Font_Size = 120
