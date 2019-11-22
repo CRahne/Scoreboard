@@ -23,7 +23,7 @@ SpawnPoint_X = 0
 SpawnPoint_Y = 0
  # These control the size of the window. If you want full screen,
  # just use the pixel dimensions of the moniter that you are using
-Window_Width = 1600
+Window_Width = 1200
 Window_Height = 900
 
 # Window Variables
