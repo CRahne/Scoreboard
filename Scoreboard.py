@@ -200,7 +200,7 @@ def Reset_Scores(channel):
 def Team1_Win(channel):
     
     # Makes the screen flash twice using a for loop counter
-    for x in range(2):
+    for x in range(1):
         Flash(Constants.Finish_Team1_Flash_Font_Color,
               Constants.Finish_Team1_Flash_Background_Color)
 
@@ -208,7 +208,7 @@ def Team1_Win(channel):
 def Team2_Win(channel):
     
     # Makes the screen flash twice using a for loop counter
-    for x in range(2):
+    for x in range(1):
         Flash(Constants.Finish_Team2_Flash_Font_Color,
               Constants.Finish_Team2_Flash_Background_Color)
         

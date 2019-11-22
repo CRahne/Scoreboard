@@ -5,8 +5,8 @@
 # Channel Numbers on PI for Buttons
 Team1_Add = 23      # Adds One to the Team1 Count
 Team2_Add = 25      # Adds One to the Team2 Count
-Team1_Sub = 24      # Subtracts One from the Team1 Count
-Team2_Sub = 18      # Subtracts One from the Team2 Count
+Team1_Sub = 18      # Subtracts One from the Team1 Count
+Team2_Sub = 24      # Subtracts One from the Team2 Count
 Scoreboard_Reset = 4 # Resets the Scoreboard
 
 # Sets the bouncetime for the buttons (The time before the program will register another press from that button, in milliseconds)
