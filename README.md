@@ -2,6 +2,8 @@
 
 A GUI that works as a scoreboard. It uses the RPi.GPIO module to interface with the buttons that are hooked up to the Raspberry Pi. Then, the program will display the scores of each team on a GUI using the Tkinter module.
 
+![Something Should Be Here](Docs/Scoreboard_Cropped.png)
+
 ---
 
 ## Set Up and Installation
